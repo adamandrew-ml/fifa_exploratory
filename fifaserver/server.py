@@ -21,9 +21,9 @@ class Query:
             "mst" : "<="
         }
 
-        self.sql_query_open  = "select sofifa_id, short_name, year, club_name, overall from players where 1=1 "
+        self.sql_query_open  = "select * from players where 1=1 "
         self.query_main      = ""
-        self.sql_query_close = " limit 10;"
+        self.sql_query_close = " order by overall desc limit 100;"
 
     def convert_to_sql(self, field_name, operator, value):
         value = str(value).lower()
