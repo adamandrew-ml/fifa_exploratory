@@ -15,7 +15,7 @@ const Table = (year) => {
       }
     )
   }, [this_year]);
-  // console.log("HERE");
+
   return (
       <div>
         <table className = "mydatatable">
