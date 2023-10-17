@@ -4,10 +4,6 @@ const Table = (year) => {
 
 
   const this_year = year.year
-
-
-
-  console.log(this_year);
   const [data, setData] = useState([{}]);
 
   useEffect(() => {
