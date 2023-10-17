@@ -18,22 +18,6 @@ const Filters = () => {
     console.log(selectedYear);
   };
 
-
-  // const get_club_options = () => {
-  //   const all_clubs = ["Arsenal", "Chelsea", "Liverpool"];
-  //   return (all_clubs.map(item_club => (
-  //     {"value": item_club, "label": item_club}
-  //   )));
-  // };
-  // const club_options = get_club_options();
-  // const [selectedClub, setSelectedClub] = useState("CLUB");
-  // const handleOnChangeClub = (selectedClubOpt) => {
-  //   setSelectedClub(selectedClubOpt.value);
-  //   console.log(selectedClub);
-  // };
-
-
-
   return (
     <div>
       <Select options={year_options} id="year-select" onChange={handleOnChangeYear}/>
