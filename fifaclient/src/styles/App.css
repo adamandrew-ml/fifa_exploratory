@@ -1,0 +1,140 @@
+
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+} */
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+
+/* .App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+ */
+
+
+
+/* CSS HEX */
+:root {
+	--gray: #7a7d7dff;
+	--rich-black: #0c1618ff;
+	--ivory: #fffce8ff;
+	--claret: #990d35ff;
+	--claretvilla: #490024ff;
+	--rusty-red: #d52941ff;
+	--lightcoral: #E37884ff;
+	--lightcoral-t : #E3788422;
+	--mistyrose: #F8DDE0ff;
+	--white: #fff;
+	--transition-speed: 1s;
+}
+
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.mydatatable {
+  margin-top: 10px;
+  font-family: Helvetica;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.mydatatable th, td {
+  padding: 0px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+.mydatatable th {
+  background-color: #333333;
+  border-bottom: 3px solid red;
+  color: white;
+}
+
+
+.navbartop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+  margin: 5px 0px 10px 0px;
+	padding: 0;
+  height: 50px;
+}
+
+.navbartop ul {
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+	text-align: center;
+	justify-content: space-evenly;
+  margin: 0px;
+  padding: 0px;
+  height: 50px;
+}
+
+.navbartop li {
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  line-height: 50px;
+  width: 100%;
+}
+
+.navbartop li:hover {
+  cursor: pointer;
+  background-color: var(--lightcoral);
+}
+
+.navbartop a {
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  width: 100%;
+}
+
+.links-internal, .links-internal {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.links-internal {
+  width: 80%;
+  background-color: var(--claret);
+  color: white;
+}
+
+.links-external {
+  width: 20%;
+  background-color: white;
+  color: var(--claret);
+}
+
+.links-external img {
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: contain;
+}
