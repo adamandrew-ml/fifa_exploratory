@@ -69,7 +69,6 @@ def query():
     query_class = Query("fifa.db")
     myquery = query_class.set_arguments(args_dict).set_query()
     returnable = myquery.execute_query().get_results()
-    print(returnable)
     os.chdir(curr_dir)
     return jsonify(returnable)
     

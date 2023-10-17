@@ -33,6 +33,7 @@ import React from 'react'
                 <ul>
                     {internalNavlinks.map((item, i) => (
                         <li key={i}>
+                        {/* <li key={i} href={item.linkout}>{item.value} */}
                             <a href={item.linkout}>
                                 {item.value}
                             </a>
