@@ -1,11 +1,19 @@
 from flask import Flask, request, jsonify
 import sqlite3
 from pprint import pprint
-import json
+from flask_sqlalchemy import SQLAlchemy
+import os
 
 
 app = Flask(__name__)
 app.secret_key = "temp"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     username = db.Column(db.String(80), unique=True, nullable=False)
+#     email = db.Column(db.String(120), unique=True, nullable=False)
+
 
 
 class Query:
@@ -54,11 +62,16 @@ class Query:
 
 @app.route("/query", methods = ["GET", "POST"])
 def query():
+    curr_dir = os.getcwd()
+    if curr_dir[-10:] == "fifaserver":
+        os.chdir(curr_dir[:-10])
     args_dict = request.args.to_dict()
     query_class = Query("fifa.db")
     myquery = query_class.set_arguments(args_dict).set_query()
     returnable = myquery.execute_query().get_results()
-    return returnable
+    print(returnable)
+    os.chdir(curr_dir)
+    return jsonify(returnable)
     
 
 if __name__ == "__main__":

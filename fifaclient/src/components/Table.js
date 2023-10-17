@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
 const Table = (year) => {
+
+
   const this_year = year.year
-  const [data, setData] = useState([{}])
+
+
+
+  console.log(this_year);
+  const [data, setData] = useState([{}]);
 
   useEffect(() => {
-    fetch(`/query?year__eql=${this_year}&club_name__lik=aston`).then(
+    fetch(`/query?year__eql=${this_year}&club_name__eql=Aston+Villa`).then(
       res => res.json()
     ).then(
       data => {
         setData(data)
       }
     )
-  }, [this_year])
-
+  }, [this_year]);
+  // console.log("HERE");
   return (
       <div>
         <table className = "mydatatable">
@@ -36,7 +42,7 @@ const Table = (year) => {
             {
               (typeof data.Things === "undefined") ? (
                 <tr>
-                  <td colSpan={6}>Nothing yet</td>
+                  <td colSpan={11}>Nothing yet</td>
                 </tr>
               ) : (
                 data.Things.map((thing, i) => (
