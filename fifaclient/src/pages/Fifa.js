@@ -4,8 +4,10 @@ import FifaFilters from './components/FifaFilters'
 const Fifa = () => {
 
   return (
-    <div>
-      <FifaFilters />
+    <div className="outer-container">
+      <div className="fifa-container">
+        <FifaFilters />
+      </div>
     </div>
   )
 }

@@ -4,6 +4,9 @@ import "./styles/App.css"
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "@fontsource/roboto"; // Defaults to weight 400
+import "@fontsource/roboto/400.css"; // Specify weight
+import "@fontsource/roboto/400-italic.css"; // Specify weight and style
 import Layout from "./pages/Layout";
 import Fifa from "./pages/Fifa";
 import About from "./pages/About";
