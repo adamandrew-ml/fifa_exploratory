@@ -15,7 +15,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 #     email = db.Column(db.String(120), unique=True, nullable=False)
 
 
-
 class Query:
     def __init__(self, db_path):
         self.db_path = db_path
@@ -23,14 +22,14 @@ class Query:
         self.cur = self.con.cursor()
 
         self.operators = {
-            "eql" : "=",
-            "lik" : "like",
-            "lst" : ">=",
-            "mst" : "<="
+            "eql": "=",
+            "lik": "like",
+            "lst": ">=",
+            "mst": "<="
         }
 
-        self.sql_query_open  = "select * from players where 1=1 "
-        self.query_main      = ""
+        self.sql_query_open = "select * from players where 1=1 "
+        self.query_main = ""
         self.sql_query_close = " order by overall desc limit 100;"
 
     def convert_to_sql(self, field_name, operator, value):
@@ -41,12 +40,13 @@ class Query:
     def set_arguments(self, args_dict):
         for key, value in args_dict.items():
             field_name = key[:key.index("__")]
-            operator   = key[key.index("__")+2:]
+            operator = key[key.index("__")+2:]
             self.query_main += f" and {self.convert_to_sql(field_name, operator, value)}"
         return self
 
     def set_query(self):
-        self.query_string = self.sql_query_open + self.query_main + self.sql_query_close
+        self.query_string = self.sql_query_open + \
+            self.query_main + self.sql_query_close
         self.query = self.cur.execute(self.query_string)
         return self
 
@@ -55,23 +55,19 @@ class Query:
         return self
 
     def get_results(self):
-        returnable = {"Things": [{k: v for k, v in zip([i[0] for i in self.query.description], i)} for i in self.results]}
+        returnable = {"Things": [{k: v for k, v in zip(
+            [i[0] for i in self.query.description], i)} for i in self.results]}
         return returnable
 
 
-
-@app.route("/query", methods = ["GET", "POST"])
+@app.route("/query", methods=["GET", "POST"])
 def query():
-    curr_dir = os.getcwd()
-    if curr_dir[-10:] == "fifaserver":
-        os.chdir(curr_dir[:-10])
     args_dict = request.args.to_dict()
     query_class = Query("fifa.db")
     myquery = query_class.set_arguments(args_dict).set_query()
     returnable = myquery.execute_query().get_results()
-    os.chdir(curr_dir)
     return jsonify(returnable)
-    
+
 
 if __name__ == "__main__":
     app.run(debug=True)
